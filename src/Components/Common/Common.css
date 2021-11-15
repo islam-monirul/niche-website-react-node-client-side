@@ -1,0 +1,11 @@
+.text-justify {
+  text-align: justify;
+}
+
+.qlinks {
+  cursor: pointer;
+}
+
+.qlinks:hover {
+  color: #fff !important;
+}
