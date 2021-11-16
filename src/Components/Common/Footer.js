@@ -12,7 +12,7 @@ const Footer = () => {
           <Col md={5}>
             <div className="h-100 p-3">
               <h4 className="text-white fw-bold">
-                Football <span className="text-danger">Phobia</span>
+                Moto<span className="text-danger">Maze</span>
               </h4>
               <p className="text-white fw-light text-justify">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -48,15 +48,15 @@ const Footer = () => {
               <h6 className="text-white fw-bold mb-3">Follow us on social</h6>
               <p as={NavLink} to="/" className="text-secondary qlinks">
                 <FaFacebookSquare className="fs-5" />
-                <span className="align-middle lh-1"> /footballPhobia</span>
+                <span className="align-middle lh-1"> /motoMaze</span>
               </p>
               <p as={NavLink} to="/" className="text-secondary qlinks">
                 <FaInstagram className="fs-5" />
-                <span className="align-middle lh-1"> /fPhobia</span>
+                <span className="align-middle lh-1"> /moMz</span>
               </p>
               <p as={NavLink} to="/" className="text-secondary qlinks">
                 <FaTwitterSquare className="fs-5" />
-                <span className="align-middle lh-1"> /footPhobia</span>
+                <span className="align-middle lh-1"> /moMaze</span>
               </p>
             </div>
           </Col>
@@ -70,7 +70,7 @@ const Footer = () => {
           <Col md={7} sm={12}>
             <p className="text-white fw-light text-center text-md-start">
               © 2021 | All rights reserved by{" "}
-              <span className="text-danger qlinks">Football Phobia</span>
+              <span className="text-danger qlinks">MotoMaze</span>
             </p>
           </Col>
           <Col md={5} sm={12}>
