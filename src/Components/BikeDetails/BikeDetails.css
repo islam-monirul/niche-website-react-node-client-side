@@ -1,0 +1,11 @@
+.activeColor {
+  border-color: crimson !important;
+}
+
+.selection {
+  cursor: pointer;
+}
+
+.text-justify {
+  text-align: justify;
+}
