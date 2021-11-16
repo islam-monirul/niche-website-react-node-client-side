@@ -1,0 +1,15 @@
+.loginRegIcon {
+  font-size: 100px;
+}
+
+.loginRegForm {
+  box-shadow: rgba(149, 157, 165, 0.123) 0px 8px 24px;
+}
+
+.style-cursor {
+  cursor: pointer;
+}
+
+.style-cursor:hover {
+  color: #000 !important;
+}
