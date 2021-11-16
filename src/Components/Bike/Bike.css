@@ -1,0 +1,11 @@
+.bikeCard {
+  background-color: #fff;
+  padding: 20px;
+  transition: all 0.6s ease;
+  border: none;
+  box-shadow: rgba(149, 157, 165, 0.123) 0px 8px 24px;
+}
+
+.bikeCard:hover {
+  transform: translateY(-25px);
+}
