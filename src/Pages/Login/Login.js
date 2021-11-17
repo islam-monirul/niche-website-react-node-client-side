@@ -11,33 +11,54 @@ import {
 } from "react-bootstrap";
 import "./Login.css";
 import { FaUserCircle } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const { loginUser, isLoading, user, authError, setAuthError } = useAuth();
+  const {
+    loginUser,
+    isLoading,
+    user,
+    authError,
+    setAuthError,
+    signInWithGoogle,
+  } = useAuth();
+
+  const location = useLocation();
+  const history = useHistory();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
     setAuthError("");
-    loginUser(data.email, data.password);
+    loginUser(data.email, data.password, location, history);
+  };
+
+  const handleGoogleSignIn = () => {
+    setAuthError("");
+    signInWithGoogle(location, history);
   };
 
   return (
     <Container className="py-5">
-      <Row className="py-5 d-flex justify-content-center align-items-center">
-        <Col md={6} className="py-5">
-          <h1 className="text-danger">Welcome</h1>
-          <p className="text-secondary">
-            Thank you for getting back. <br /> Please Login to access all the
-            features available at our system.
-          </p>
-        </Col>
+      <Row className="py-5 d-flex justify-content-center align-items-center commonFormDiv">
+        {isLoading ? (
+          ""
+        ) : (
+          <Col md={6} className="py-5">
+            <h1 className="text-danger">Welcome</h1>
+            <p className="text-secondary">
+              Thank you for getting back. <br /> Please Login to access all the
+              features available at our system.
+            </p>
+          </Col>
+        )}
         <Col md={4} className="py-5">
           {user.email && (
             <Alert variant="success" className="my-4">
@@ -91,10 +112,27 @@ const Login = () => {
                   </Button>
                 </div>
               </Form>
+
+              <p className="pt-3 text-center text-secondary">
+                ----------- OR -----------
+              </p>
+              <div className="d-flex gap-2 justify-content-center">
+                <FcGoogle
+                  className="fs-2 icon-cursor"
+                  onClick={handleGoogleSignIn}
+                />
+              </div>
             </div>
           )}
           {isLoading && (
-            <Spinner className="d-block mx-auto" animation="grow" />
+            <div>
+              <Spinner
+                className="d-block mx-auto"
+                animation="grow"
+                variant="danger"
+              />
+              <p className="text-center mt-3">Please wait...</p>
+            </div>
           )}
         </Col>
       </Row>

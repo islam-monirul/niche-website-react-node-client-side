@@ -3,13 +3,21 @@
 }
 
 .loginRegForm {
-  box-shadow: rgba(149, 157, 165, 0.123) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.212) 0px 8px 24px;
 }
 
 .style-cursor {
   cursor: pointer;
 }
 
+.icon-cursor {
+  cursor: pointer;
+}
+
 .style-cursor:hover {
-  color: #000 !important;
+  color: crimson !important;
+}
+
+.commonFormDiv {
+  min-height: 55vh;
 }

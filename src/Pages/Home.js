@@ -11,7 +11,10 @@ const Home = () => {
       className="d-flex justify-content-center"
     >
       {user.email ? (
-        <Button onClick={logout}>Logout</Button>
+        <div>
+          <p className="text-center">{user.displayName}</p>
+          <Button onClick={logout}>Logout</Button>
+        </div>
       ) : (
         <Button as={NavLink} to="/login">
           Login

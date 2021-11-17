@@ -6,6 +6,9 @@ import {
   signOut,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
 
 initializeFirebase();
@@ -16,13 +19,32 @@ const useFirebase = () => {
   const [authError, setAuthError] = useState("");
 
   const auth = getAuth();
+  const googleProvider = new GoogleAuthProvider();
 
   //   sign up with email & pass
-  const registerUser = (email, password) => {
+  const registerUser = (email, password, name, history) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
         setAuthError("");
+        const newUser = { email, displayName: name };
+        setUser(newUser);
+
+        // call function of saving user to mongoDB
+        saveUserToDb(email, name, "POST");
+
+        // send name to firebase
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {
+            // Profile updated!
+          })
+          .catch((error) => {
+            // An error occurred
+          });
+
+        history.replace("/");
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -31,13 +53,32 @@ const useFirebase = () => {
   };
 
   //   sign in with email and password
-  const loginUser = (email, password) => {
+  const loginUser = (email, password, location, history) => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
         // Signed in
         setAuthError("");
-        // ...
+
+        const destination = location?.state?.from || "/";
+        history.replace(destination);
+      })
+      .catch((error) => {
+        setAuthError(error.message);
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  // google signIn
+  const signInWithGoogle = (location, history) => {
+    setIsLoading(true);
+    signInWithPopup(auth, googleProvider)
+      .then((res) => {
+        const user = res.user;
+        setAuthError("");
+
+        // call function of saving user to mongoDB
+        saveUserToDb(user.email, user.displayName, "PUT");
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -50,10 +91,10 @@ const useFirebase = () => {
     setIsLoading(true);
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
+        setAuthError("");
       })
       .catch((error) => {
-        // An error happened.
+        setAuthError(error.message);
       })
       .finally(() => setIsLoading(false));
   };
@@ -71,9 +112,23 @@ const useFirebase = () => {
     return () => unsubscribe;
   }, []);
 
+  const saveUserToDb = (email, displayName, method) => {
+    const user = { email, displayName };
+    user.role = "client";
+
+    fetch("https://sleepy-depths-60481.herokuapp.com/adduser", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then();
+  };
+
   return {
     user,
     registerUser,
+    signInWithGoogle,
     loginUser,
     logout,
     isLoading,

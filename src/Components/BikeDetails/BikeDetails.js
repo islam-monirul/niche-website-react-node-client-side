@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
 import Bike from "../Bike/Bike";
 import "./BikeDetails.css";
+import { useHistory } from "react-router-dom";
 
 const BikeDetails = () => {
   const { bikeId } = useParams();
@@ -38,8 +39,16 @@ const BikeDetails = () => {
     formState: { errors },
   } = useForm();
 
+  const history = useHistory();
   const onSubmit = (data) => {
-    console.log(data, selectCol);
+    // console.log(data, selectCol);
+    data.color = selectCol;
+    data.id = bike._id;
+    data.pName = bike.name;
+    data.pBrand = bike.brand;
+    data.price = bike.price;
+
+    history.push("/orderPlacement", { orderDetails: data });
   };
 
   //   for getting all bikes and filtering except the current one

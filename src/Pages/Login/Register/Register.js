@@ -10,33 +10,42 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { FaUserCircle } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
+import "./Register.css";
 
 const Register = () => {
   const { registerUser, isLoading, user, authError, setAuthError } = useAuth();
+
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
     // console.log(data.email, data.password);
     setAuthError("");
-    registerUser(data.email, data.password);
+    registerUser(data.email, data.password, data.name, history);
   };
   return (
     <Container className="py-5">
-      <Row className="py-5 d-flex justify-content-center align-items-center">
-        <Col md={6} className="py-5">
-          <h1 className="text-danger">Welcome</h1>
-          <p className="text-secondary">
-            Welcome to our website.
-            <br /> Please Register to access all the features available at our
-            system.
-          </p>
-        </Col>
+      <Row className="py-5 d-flex justify-content-center align-items-center commonFormDiv">
+        {isLoading ? (
+          ""
+        ) : (
+          <Col md={6} className="py-5">
+            <h1 className="text-danger">Welcome</h1>
+            <p className="text-secondary">
+              Welcome to our website.
+              <br /> Please Register to access all the features available at our
+              system.
+            </p>
+          </Col>
+        )}
         <Col md={4} className="py-5">
           {user.email && (
             <Alert variant="success" className="my-4">
@@ -53,6 +62,19 @@ const Register = () => {
             <div className="loginRegForm p-5">
               <FaUserCircle className="d-block mx-auto loginRegIcon text-secondary mb-3" />
               <Form onSubmit={handleSubmit(onSubmit)}>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Your name"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="text"
+                    placeholder="e.g. Monirul Islam"
+                    {...register("name", { required: true })}
+                  />
+                  {errors.name && <span>This field is required</span>}
+                </FloatingLabel>
+
                 <FloatingLabel
                   controlId="floatingInput"
                   label="Email address"
