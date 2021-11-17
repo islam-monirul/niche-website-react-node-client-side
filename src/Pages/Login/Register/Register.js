@@ -1,23 +1,31 @@
 import React from "react";
 import {
+  Alert,
   Button,
   Col,
   Container,
   FloatingLabel,
   Form,
   Row,
+  Spinner,
 } from "react-bootstrap";
 import { FaUserCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import useAuth from "../../../hooks/useAuth";
 
 const Register = () => {
+  const { registerUser, isLoading, user, authError, setAuthError } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    // console.log(data.email, data.password);
+    setAuthError("");
+    registerUser(data.email, data.password);
+  };
   return (
     <Container className="py-5">
       <Row className="py-5 d-flex justify-content-center align-items-center">
@@ -30,44 +38,63 @@ const Register = () => {
           </p>
         </Col>
         <Col md={4} className="py-5">
-          <div className="loginRegForm p-5">
-            <FaUserCircle className="d-block mx-auto loginRegIcon text-secondary mb-3" />
-            <Form onSubmit={handleSubmit(onSubmit)}>
-              <FloatingLabel
-                controlId="floatingInput"
-                label="Email address"
-                className="mb-3"
-              >
-                <Form.Control
-                  type="email"
-                  placeholder="name@example.com"
-                  {...register("email", { required: true })}
-                />
-                {errors.email && <span>This field is required</span>}
-              </FloatingLabel>
+          {user.email && (
+            <Alert variant="success" className="my-4">
+              User Added Successfully!
+            </Alert>
+          )}
+          {authError && (
+            <Alert variant="danger" className="my-4">
+              {authError}
+            </Alert>
+          )}
 
-              <FloatingLabel controlId="floatingPassword" label="Password">
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  {...register("password", { required: true })}
-                />
-                {errors.password && <span>This field is required</span>}
-              </FloatingLabel>
+          {!isLoading && (
+            <div className="loginRegForm p-5">
+              <FaUserCircle className="d-block mx-auto loginRegIcon text-secondary mb-3" />
+              <Form onSubmit={handleSubmit(onSubmit)}>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="Email address"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    type="email"
+                    placeholder="name@example.com"
+                    {...register("email", { required: true })}
+                  />
+                  {errors.email && <span>This field is required</span>}
+                </FloatingLabel>
 
-              <NavLink to="/login" style={{ textDecoration: "none" }}>
-                <Button variant="transparent" className="mt-3 d-block mx-auto">
-                  Already and user ? Login
-                </Button>
-              </NavLink>
+                <FloatingLabel controlId="floatingPassword" label="Password">
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    {...register("password", { required: true })}
+                  />
+                  {errors.password && <span>This field is required</span>}
+                </FloatingLabel>
 
-              <div className="mt-3 d-grid gap-2">
-                <Button variant="dark" type="submit">
-                  Login
-                </Button>
-              </div>
-            </Form>
-          </div>
+                <NavLink to="/login" style={{ textDecoration: "none" }}>
+                  <Button
+                    variant="transparent"
+                    className="mt-3 d-block mx-auto"
+                  >
+                    Already an user ? Login
+                  </Button>
+                </NavLink>
+
+                <div className="mt-3 d-grid gap-2">
+                  <Button variant="dark" type="submit">
+                    Register
+                  </Button>
+                </div>
+              </Form>
+            </div>
+          )}
+          {isLoading && (
+            <Spinner className="d-block mx-auto" animation="grow" />
+          )}
         </Col>
       </Row>
     </Container>

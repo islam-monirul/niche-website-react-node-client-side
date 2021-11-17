@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Gixxer SF 250",
+    "brand": "Suzuki",
+    "color": ["black", "blue", "red"],
+    "price": 2500,
+    "review": 4.5,
+    "specification": {
+      "gearBox": "6 Speed",
+      "ABS": "Dual Channel",
+      "engineDisplay": "249 cc",
+      "maxPower": "9300 rpm",
+      "fuelType": "Petrol",
+      "tyreType": "Tubeless"
+    },
+    "image": "https://i.ibb.co/sKwXQs1/Gixxer-SF-250.jpg",
+    "details": "Suzuki Gixxer SF 250 is powered by 249 cc engine.This Gixxer SF 250 engine generates a power of 26.5 PS @ 9300 rpm and a torque of 22.2 Nm @ 7300 rpm. Suzuki Gixxer SF 250 gets Disc brakes in the front and rear. The kerb weight of Gixxer SF 250 is 161 Kg. Suzuki Gixxer SF 250 has Tubeless Tyre and Alloy Wheels."
+  },
+  {
+    "name": "Intruder",
+    "brand": "Suzuki",
+    "color": ["black"],
+    "price": 2016,
+    "review": 4,
+    "specification": {
+      "gearBox": "5 Speed",
+      "ABS": "Single Channel",
+      "engineDisplay": "155 cc",
+      "maxPower": "8000 rpm",
+      "fuelType": "Petrol",
+      "tyreType": "Tubeless"
+    },
+    "image": "https://i.ibb.co/NLfpFyK/Suzuki-Intruder.jpg",
+    "details": "Suzuki Intruder is powered by 155 cc engine.This Intruder engine generates a power of 13.6 PS @ 8000 rpm and a torque of 13.8 Nm @ 6000 rpm. Suzuki Intruder gets Disc brakes in the front and rear. The kerb weight of Intruder is 152 Kg. Suzuki Intruder has Tubeless Tyre and Cast Alloy Wheels."
+  },
+  {
+    "name": "R15 V4",
+    "brand": "Yamaha",
+    "color": ["black", "ash", "red"],
+    "price": 2400,
+    "review": 4.5,
+    "specification": {
+      "gearBox": "6 Speed",
+      "ABS": "Dual Channel",
+      "engineDisplay": "155 cc",
+      "maxPower": "10000 rpm",
+      "fuelType": "Petrol",
+      "tyreType": "Tubeless"
+    },
+    "image": "https://i.ibb.co/cXCrg5V/Yamaha-R15-V4.jpg",
+    "details": "Yamaha R15 V4 is powered by 155 cc engine.This R15 V4 engine generates a power of 18.4 PS @ 10000 rpm and a torque of 14.2 Nm @ 7500 rpm. Yamaha R15 V4 gets Disc brakes in the front and rear. The kerb weight of R15 V4 is 142 Kg. Yamaha R15 V4 has Tubeless Tyre and Alloy Wheels."
+  },
+  {
+    "name": "MT 15",
+    "brand": "Yamaha",
+    "color": ["black", "white"],
+    "price": 2000,
+    "review": 4.9,
+    "specification": {
+      "gearBox": "6 Speed",
+      "ABS": "Single Channel",
+      "engineDisplay": "155 cc",
+      "maxPower": "10000 rpm",
+      "fuelType": "Petrol",
+      "tyreType": "Tubeless"
+    },
+    "image": "https://i.ibb.co/CKRF0Vj/Yamaha-MT-15.jpg",
+    "details": "Yamaha MT 15 is powered by 155 cc engine.This MT 15 engine generates a power of 18.5 PS @ 10000 rpm and a torque of 13.9 Nm @ 8500 rpm. The claimed mileage of MT 15 is 52.02 kmph. Yamaha MT 15 gets Disc brakes in the front and rear. The kerb weight of MT 15 is 138 Kg. Yamaha MT 15 has Tubeless Tyre and Alloy Wheels."
+  },
+  {
+    "name": "Raider",
+    "brand": "TVS",
+    "color": ["black", "blue", "red"],
+    "price": 980,
+    "review": 3.8,
+    "specification": {
+      "gearBox": "5 Speed",
+      "ABS": "N/A",
+      "engineDisplay": "124.8 cc",
+      "maxPower": "7500 rpm",
+      "fuelType": "Petrol",
+      "tyreType": "Tubeless"
+    },
+    "image": "https://i.ibb.co/MByXTt3/TVS-Raider.jpg",
+    "details": "TVS Raider is powered by 124.8 cc engine.This Raider engine generates a power of 11.38 PS @ 7500 rpm and a torque of 11.2 Nm @ 6000 rpm. The claimed mileage of Raider is 65.44 kmpl. TVS Raider gets Drum brakes in the front and rear. The kerb weight of Raider is 123 Kg. TVS Raider has Tubeless Tyre and Alloy Wheels."
+  },
+  {
+    "name": "Meteor 350",
+    "brand": "Royal Enfield",
+    "color": ["black", "blue", "ash"],
+    "price": 2700,
+    "review": 4.9,
+    "specification": {
+      "gearBox": "5 Speed",
+      "ABS": "Dual Channel",
+      "engineDisplay": "349 cc",
+      "maxPower": "6100 rpm",
+      "fuelType": "Petrol",
+      "tyreType": "Tubeless"
+    },
+    "image": "https://i.ibb.co/xhdHwvx/Royal-Enfield-Meteor-350.jpg",
+    "details": "Royal Enfield Meteor 350 is powered by 349 cc engine.This Meteor 350 engine generates a power of 20.4 PS @ 6100 rpm and a torque of 27 Nm @ 4000 rpm. The claimed mileage of Meteor 350 is 41.88 kmpl. Royal Enfield Meteor 350 gets Disc brakes in the front and rear. Royal Enfield Meteor 350 has Tubeless Tyre and Alloy Wheels."
+  }
+]
