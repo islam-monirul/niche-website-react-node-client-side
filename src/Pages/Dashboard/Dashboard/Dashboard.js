@@ -15,6 +15,7 @@ import {
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddReview from "../AddReview/AddReview";
+import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 
 const Dashboard = () => {
   const { user, logout, admin } = useAuth();
@@ -95,9 +96,9 @@ const Dashboard = () => {
                 <Route exact path={path}>
                   <DashboardHome></DashboardHome>
                 </Route>
-                <Route path={`${path}/makeAdmin`}>
+                <AdminRoute path={`${path}/makeAdmin`}>
                   <MakeAdmin></MakeAdmin>
-                </Route>
+                </AdminRoute>
                 <Route path={`${path}/addReview`}>
                   <AddReview></AddReview>
                 </Route>
