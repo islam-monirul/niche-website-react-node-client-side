@@ -9,3 +9,15 @@
 .qlinks:hover {
   color: #fff !important;
 }
+
+.custom-text-color1 {
+  color: #e01250;
+}
+
+.headerLogoutBtn:hover {
+  color: crimson !important;
+}
+
+.headerLogoutBtn2:hover {
+  color: #fff !important;
+}

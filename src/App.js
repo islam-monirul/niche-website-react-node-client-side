@@ -1,6 +1,5 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "./Components/Common/Footer";
 import Bikes from "./Components/Bikes/Bikes";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BikeDetails from "./Components/BikeDetails/BikeDetails";
@@ -18,6 +17,9 @@ function App() {
       <div className="App">
         <Router>
           <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
             <Route path="/home">
               <Home></Home>
             </Route>
