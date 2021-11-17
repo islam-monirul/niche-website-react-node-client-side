@@ -1,8 +1,19 @@
 import React from "react";
-import { Button, Col, Container, Nav, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  FormControl,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Offcanvas,
+  Row,
+} from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
 import "../Dashboard.css";
-import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
+import { FaSignOutAlt, FaUserCircle, FaArrowLeft } from "react-icons/fa";
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,8 +35,74 @@ const Dashboard = () => {
   return (
     <Container className="bg-light p-2" fluid>
       {/* top nav row */}
-      <Row className="d-md-none">
-        <Col sm={12}>Nav</Col>
+      <Row className="bg-white mb-2 d-md-none">
+        <Col sm={12}>
+          <Navbar expand={false}>
+            <Container fluid>
+              <Navbar.Toggle
+                aria-controls="offcanvasNavbar"
+                className="ms-auto"
+              />
+              <Navbar.Offcanvas
+                id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel"
+                placement="start"
+              >
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title id="offcanvasNavbarLabel">
+                    Moto<span className="text-danger">Maze</span>
+                  </Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                  <Nav className="justify-content-end flex-grow-1 pe-3">
+                    <NavLink
+                      to="/"
+                      style={{ color: "#000", textDecoration: "none" }}
+                      className="mb-2"
+                    >
+                      Homepage
+                    </NavLink>
+
+                    {admin && (
+                      <Nav>
+                        <NavLink
+                          to={`${url}/makeAdmin`}
+                          style={{ color: "#000", textDecoration: "none" }}
+                          activeStyle={{ color: "crimson", fontWeight: "bold" }}
+                          className="mb-2"
+                        >
+                          Make Admin
+                        </NavLink>
+                      </Nav>
+                    )}
+
+                    {!admin && (
+                      <Nav>
+                        <NavLink
+                          to={`${url}/addReview`}
+                          style={{ color: "#000", textDecoration: "none" }}
+                          activeStyle={{ color: "crimson", fontWeight: "bold" }}
+                          className="mb-2"
+                        >
+                          Add Review
+                        </NavLink>
+                      </Nav>
+                    )}
+
+                    <div>
+                      <Button
+                        className="bg-transparent text-danger border-0 lgBtn p-0"
+                        onClick={logout}
+                      >
+                        <FaSignOutAlt /> <span>Logout</span>
+                      </Button>
+                    </div>
+                  </Nav>
+                </Offcanvas.Body>
+              </Navbar.Offcanvas>
+            </Container>
+          </Navbar>
+        </Col>
       </Row>
 
       <Row>
@@ -39,8 +116,9 @@ const Dashboard = () => {
             <div className="mid">
               <ul className="navigationUl">
                 <li>
-                  <NavLink to={`${url}`} style={{ color: "#fff" }}>
-                    Dashboard
+                  <NavLink to="/" style={{ color: "#fff" }}>
+                    <FaArrowLeft className="me-2" />{" "}
+                    <span className="align-middle">Back</span>
                   </NavLink>
                 </li>
                 <li>
@@ -49,7 +127,7 @@ const Dashboard = () => {
                     style={{ color: "#fff" }}
                     activeStyle={{ color: "#000", fontWeight: "bold" }}
                   >
-                    Add an Review
+                    Add Review
                   </NavLink>
                 </li>
                 {admin && (
