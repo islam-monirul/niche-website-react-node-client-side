@@ -114,7 +114,6 @@ const useFirebase = () => {
 
   const saveUserToDb = (email, displayName, method) => {
     const user = { email, displayName };
-    user.role = "client";
 
     fetch("https://sleepy-depths-60481.herokuapp.com/adduser", {
       method: method,

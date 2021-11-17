@@ -1,0 +1,49 @@
+.sidebar {
+  height: 97vh;
+  position: fixed;
+}
+
+.mainContainer {
+  min-height: 90vh;
+}
+
+.mid {
+  height: 80vh;
+  width: 100%;
+}
+
+.up {
+  height: 5vh;
+  width: 100%;
+}
+
+.lgBtn:hover {
+  color: #000 !important;
+}
+
+ul {
+  padding: 0;
+  text-align: center;
+}
+li {
+  list-style: none;
+  padding: 10px 0;
+  background-color: rgba(0, 0, 0, 0.075);
+  margin: 5px 0;
+}
+
+li a {
+  text-decoration: none;
+}
+
+ul li:hover {
+  background-color: rgba(0, 0, 0, 0.267);
+}
+
+.user {
+  margin-bottom: 0;
+}
+
+.dashboardSectionCommonPadding {
+  padding: 100px 0;
+}
