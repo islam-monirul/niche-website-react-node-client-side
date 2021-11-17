@@ -27,7 +27,7 @@ const CommonHeader = () => {
             {user?.email ? (
               admin ? (
                 <Nav>
-                  <Nav.Link as={Link} to="/">
+                  <Nav.Link as={Link} to="/bikes">
                     Explore
                   </Nav.Link>
                   <Nav.Link as={Link} to="/dashboard">
@@ -36,7 +36,7 @@ const CommonHeader = () => {
                 </Nav>
               ) : (
                 <Nav>
-                  <Nav.Link as={Link} to="/s">
+                  <Nav.Link as={Link} to="/bikes">
                     Explore
                   </Nav.Link>
                   <Nav.Link as={Link} to="/dashboard">
@@ -46,7 +46,7 @@ const CommonHeader = () => {
               )
             ) : (
               <Nav>
-                <Nav.Link as={Link} to="/">
+                <Nav.Link as={Link} to="/bikes">
                   Explore
                 </Nav.Link>
               </Nav>

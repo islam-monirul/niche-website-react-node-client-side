@@ -21,22 +21,23 @@
   color: #000 !important;
 }
 
-ul {
+.navigationUl {
   padding: 0;
   text-align: center;
 }
-li {
+
+.navigationUl li {
   list-style: none;
   padding: 10px 0;
   background-color: rgba(0, 0, 0, 0.075);
   margin: 5px 0;
 }
 
-li a {
+.navigationUl li a {
   text-decoration: none;
 }
 
-ul li:hover {
+.navigationUl li:hover {
   background-color: rgba(0, 0, 0, 0.267);
 }
 

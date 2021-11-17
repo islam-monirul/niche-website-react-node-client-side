@@ -37,7 +37,7 @@ const Dashboard = () => {
           <div className="d-flex flex-column justify-content-between align-items-center py-3">
             <div className="up"></div>
             <div className="mid">
-              <ul>
+              <ul className="navigationUl">
                 <li>
                   <NavLink to={`${url}`} style={{ color: "#fff" }}>
                     Dashboard

@@ -10,6 +10,8 @@ import AuthProvider from "./contexts/AuthProvider";
 import Home from "./Pages/Home";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import CommonHeader from "./Components/Common/CommonHeader";
+import Footer from "./Components/Common/Footer";
 
 function App() {
   return (
@@ -25,7 +27,9 @@ function App() {
             </Route>
 
             <Route path="/bikes">
+              <CommonHeader></CommonHeader>
               <Bikes></Bikes>
+              <Footer></Footer>
             </Route>
             <Route path="/bikedetails/:bikeId">
               <BikeDetails></BikeDetails>

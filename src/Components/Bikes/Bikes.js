@@ -17,7 +17,7 @@ const Bikes = () => {
     <section>
       <Container className="allBikesSection">
         <h1 className="text-center fw-bold mb-5">
-          Featured <span className="text-danger">Bikes</span>
+          MotoMaze <span className="text-danger">Bikes</span>
         </h1>
         <Row
           xs={1}
