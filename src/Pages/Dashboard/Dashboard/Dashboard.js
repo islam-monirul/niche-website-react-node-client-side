@@ -17,7 +17,7 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddReview from "../AddReview/AddReview";
 
 const Dashboard = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, admin } = useAuth();
   let { path, url } = useRouteMatch();
 
   return (
@@ -44,15 +44,6 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to={`${url}/makeAdmin`}
-                    style={{ color: "#fff" }}
-                    activeStyle={{ color: "#000", fontWeight: "bold" }}
-                  >
-                    Make Admin
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
                     to={`${url}/addReview`}
                     style={{ color: "#fff" }}
                     activeStyle={{ color: "#000", fontWeight: "bold" }}
@@ -60,6 +51,19 @@ const Dashboard = () => {
                     Add an Review
                   </NavLink>
                 </li>
+                {admin && (
+                  <>
+                    <li>
+                      <NavLink
+                        to={`${url}/makeAdmin`}
+                        style={{ color: "#fff" }}
+                        activeStyle={{ color: "#000", fontWeight: "bold" }}
+                      >
+                        Make Admin
+                      </NavLink>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
             <div>

@@ -17,6 +17,7 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
+  const [admin, setAdmin] = useState(false);
 
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
@@ -112,6 +113,13 @@ const useFirebase = () => {
     return () => unsubscribe;
   }, []);
 
+  // check admin
+  useEffect(() => {
+    fetch(`https://sleepy-depths-60481.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
+
   const saveUserToDb = (email, displayName, method) => {
     const user = { email, displayName };
 
@@ -133,6 +141,7 @@ const useFirebase = () => {
     isLoading,
     authError,
     setAuthError,
+    admin,
   };
 };
 
