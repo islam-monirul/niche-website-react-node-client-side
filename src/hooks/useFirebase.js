@@ -23,7 +23,7 @@ const useFirebase = () => {
   const googleProvider = new GoogleAuthProvider();
 
   //   sign up with email & pass
-  const registerUser = (email, password, name, history) => {
+  const registerUser = (email, password, name, location, history) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
@@ -80,6 +80,9 @@ const useFirebase = () => {
 
         // call function of saving user to mongoDB
         saveUserToDb(user.email, user.displayName, "PUT");
+
+        const destination = location?.state?.from || "/";
+        history.replace(destination);
       })
       .catch((error) => {
         setAuthError(error.message);
