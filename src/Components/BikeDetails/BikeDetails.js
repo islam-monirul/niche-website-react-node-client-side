@@ -75,6 +75,7 @@ const BikeDetails = () => {
         data.cost = parseInt(quantity) * bike.price;
         data.bikeName = bike.name;
         data.brand = bike.brand;
+        data.status = false;
 
         placeorder(data);
       } else {

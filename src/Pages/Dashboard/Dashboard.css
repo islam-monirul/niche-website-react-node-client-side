@@ -2,6 +2,9 @@
   height: 97vh;
   position: fixed;
 }
+.bgSidebar {
+  background-color: crimson;
+}
 
 .mainContainer {
   min-height: 90vh;

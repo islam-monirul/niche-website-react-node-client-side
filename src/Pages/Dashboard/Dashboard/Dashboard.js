@@ -3,30 +3,20 @@ import {
   Button,
   Col,
   Container,
-  Form,
-  FormControl,
   Nav,
   Navbar,
-  NavDropdown,
   Offcanvas,
   Row,
 } from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
 import "../Dashboard.css";
 import { FaSignOutAlt, FaUserCircle, FaArrowLeft } from "react-icons/fa";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-  NavLink,
-} from "react-router-dom";
+import { Switch, Route, useRouteMatch, NavLink } from "react-router-dom";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddReview from "../AddReview/AddReview";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
+import ManageAllOrders from "../ManageAllOrders/ManageAllOrders";
 
 const Dashboard = () => {
   const { user, logout, admin } = useAuth();
@@ -109,7 +99,7 @@ const Dashboard = () => {
         <Col
           md={3}
           lg={2}
-          className="bg-danger shadow-sm d-none d-md-block sidebar"
+          className="bgSidebar shadow-sm d-none d-md-block sidebar"
         >
           <div className="d-flex flex-column justify-content-between align-items-center py-3">
             <div className="up"></div>
@@ -145,6 +135,15 @@ const Dashboard = () => {
                         Make Admin
                       </NavLink>
                     </li>
+                    <li>
+                      <NavLink
+                        to={`${url}/manageAllorders`}
+                        style={{ color: "#fff" }}
+                        activeStyle={{ color: "#000", fontWeight: "bold" }}
+                      >
+                        Manage Orders
+                      </NavLink>
+                    </li>
                   </>
                 )}
               </ul>
@@ -173,17 +172,21 @@ const Dashboard = () => {
               </p>
             </div>
 
-            <div className="bg-white shadow-sm mainContainer">
+            <div className="bg-white shadow-sm d-flex align-items-center mainContainer">
               <Switch>
                 <Route exact path={path}>
                   <DashboardHome></DashboardHome>
                 </Route>
-                <AdminRoute path={`${path}/makeAdmin`}>
-                  <MakeAdmin></MakeAdmin>
-                </AdminRoute>
                 <Route path={`${path}/addReview`}>
                   <AddReview></AddReview>
                 </Route>
+
+                <AdminRoute path={`${path}/makeAdmin`}>
+                  <MakeAdmin></MakeAdmin>
+                </AdminRoute>
+                <AdminRoute path={`${path}/manageAllorders`}>
+                  <ManageAllOrders></ManageAllOrders>
+                </AdminRoute>
               </Switch>
             </div>
           </Col>

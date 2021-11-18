@@ -46,7 +46,7 @@ const MakeAdmin = () => {
   };
 
   return (
-    <Container className="dashboardSectionCommonPadding">
+    <Container>
       <h2 className="text-danger text-center lh-1">Make new Admin</h2>
       <p className="text-center text-secondary mb-5">
         Please enter an email that you want to add as an admin
