@@ -15,13 +15,10 @@ const Footer = () => {
                 Moto<span className="text-danger">Maze</span>
               </h4>
               <p className="text-white fw-light text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Doloribus sint quasi consequatur eveniet expedita est obcaecati
-                dolores dicta optio, voluptas voluptatem quis quia voluptates
-                cumque et voluptate labore aliquid aliquam non magnam quibusdam.
-                Tempore, repellat quisquam reiciendis quam exercitationem in
-                expedita minima voluptatem optio a! Voluptatem enim voluptas
-                aperiam impedit!
+                MotoMaze is an imaginary bike selling website. This is built
+                with React.js, Firebase, React-bootstrap, React router, Node.js,
+                MongoDB, Express js etc. as an assignment of Complete Web
+                Development with Jhankar Mahbub by Monirul Islam.
               </p>
             </div>
           </Col>

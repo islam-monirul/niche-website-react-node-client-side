@@ -20,6 +20,7 @@ import ManageAllOrders from "../ManageAllOrders/ManageAllOrders";
 import AddProduct from "../AddProduct/AddProduct";
 import ManageAllProducts from "../ManageAllProducts/ManageAllProducts";
 import MyOrders from "../MyOrders/MyOrders";
+import Pay from "../Pay/Pay";
 
 const Dashboard = () => {
   const { user, logout, admin } = useAuth();
@@ -115,6 +116,15 @@ const Dashboard = () => {
                         >
                           My Orders
                         </NavLink>
+
+                        <NavLink
+                          to={`${url}/payment`}
+                          style={{ color: "#000", textDecoration: "none" }}
+                          activeStyle={{ color: "crimson", fontWeight: "bold" }}
+                          className="mb-2"
+                        >
+                          Pay
+                        </NavLink>
                       </Nav>
                     )}
 
@@ -168,6 +178,16 @@ const Dashboard = () => {
                         activeStyle={{ color: "#000", fontWeight: "bold" }}
                       >
                         My Orders
+                      </NavLink>
+                    </li>
+
+                    <li>
+                      <NavLink
+                        to={`${url}/payment`}
+                        style={{ color: "#fff" }}
+                        activeStyle={{ color: "#000", fontWeight: "bold" }}
+                      >
+                        Pay
                       </NavLink>
                     </li>
                   </>
@@ -249,6 +269,9 @@ const Dashboard = () => {
                 </Route>
                 <Route path={`${path}/myOrders`}>
                   <MyOrders></MyOrders>
+                </Route>
+                <Route path={`${path}/payment`}>
+                  <Pay></Pay>
                 </Route>
 
                 <AdminRoute path={`${path}/makeAdmin`}>

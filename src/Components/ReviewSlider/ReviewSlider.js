@@ -18,7 +18,7 @@ const ReviewSlider = () => {
   console.log(reviews);
 
   return (
-    <section className="bg-light">
+    <section>
       <Container className="reviewSection">
         <h1 className="text-center fw-bold">
           Our Happy<span className="text-danger"> Clients</span>

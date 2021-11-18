@@ -6,6 +6,8 @@ import Footer from "./../Components/Common/Footer";
 import Bike from "./../Components/Bike/Bike";
 import "./CommonDesigns.css";
 import HeroPart from "../Components/HeroPart/HeroPart";
+import About from "../Components/About/About";
+import Benefits from "./../Components/Benefits/Benefits";
 
 const Home = () => {
   const [bikes, setBikes] = useState([]);
@@ -20,6 +22,7 @@ const Home = () => {
     <>
       <CommonHeader></CommonHeader>
       <HeroPart></HeroPart>
+      <About></About>
       {bikes && (
         <section className="sectionPadding">
           <Container>
@@ -40,6 +43,7 @@ const Home = () => {
           </Container>
         </section>
       )}
+      <Benefits></Benefits>
       <ReviewSlider></ReviewSlider>
       <Footer></Footer>
     </>
