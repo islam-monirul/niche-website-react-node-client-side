@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Bikes from "./Components/Bikes/Bikes";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BikeDetails from "./Components/BikeDetails/BikeDetails";
-import OrderPlacement from "./Pages/OrderPlacement";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Login/Register/Register";
 import AuthProvider from "./contexts/AuthProvider";
@@ -12,6 +11,7 @@ import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import CommonHeader from "./Components/Common/CommonHeader";
 import Footer from "./Components/Common/Footer";
+import Success from "./Pages/Success";
 
 function App() {
   return (
@@ -31,15 +31,15 @@ function App() {
               <Bikes></Bikes>
               <Footer></Footer>
             </Route>
-            <Route path="/bikedetails/:bikeId">
-              <BikeDetails></BikeDetails>
-            </Route>
 
-            <PrivateRoute path="/orderPlacement">
-              <OrderPlacement></OrderPlacement>
+            <PrivateRoute path="/bikedetails/:bikeId">
+              <BikeDetails></BikeDetails>
             </PrivateRoute>
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
+            </PrivateRoute>
+            <PrivateRoute path="/success">
+              <Success></Success>
             </PrivateRoute>
 
             <Route path="/login">

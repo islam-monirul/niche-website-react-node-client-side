@@ -121,15 +121,19 @@ const Dashboard = () => {
                     <span className="align-middle">Back</span>
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    to={`${url}/addReview`}
-                    style={{ color: "#fff" }}
-                    activeStyle={{ color: "#000", fontWeight: "bold" }}
-                  >
-                    Add Review
-                  </NavLink>
-                </li>
+                {!admin && (
+                  <>
+                    <li>
+                      <NavLink
+                        to={`${url}/addReview`}
+                        style={{ color: "#fff" }}
+                        activeStyle={{ color: "#000", fontWeight: "bold" }}
+                      >
+                        Add Review
+                      </NavLink>
+                    </li>
+                  </>
+                )}
                 {admin && (
                   <>
                     <li>
