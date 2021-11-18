@@ -4,22 +4,26 @@ import { NavLink } from "react-router-dom";
 import "./Bike.css";
 
 const Bike = (props) => {
-  const { _id, image, brand, name, price } = props.info;
+  const { _id, image, brand, name, price, details } = props.info;
 
   const bikeDetails = `/bikedetails/${_id}`;
   return (
     <Col>
       <Card className="h-100 bg-transparent bikeCard">
-        <Card.Img src={image} className="img-fluid" />
+        <Card.Img src={image} className="img-fluid w-75" />
         <Card.Body>
           <h6 className="text-danger">{brand}</h6>
           <h5 className="text-secondary">{name}</h5>
 
           {props?.flag !== 1 && (
-            <h3 className="pt-3">
-              <span className="fs-6 text-seondary">Price:</span>{" "}
-              <span className="fw-bold">${price}</span>
-            </h3>
+            <>
+              <h3 className="pt-3">
+                <span className="fs-6 text-seondary">Price:</span>{" "}
+                <span className="fw-bold">${price}</span>
+              </h3>
+
+              <p className="text-secondary">{details.substring(0, 90)}</p>
+            </>
           )}
         </Card.Body>
         <Card.Footer className="border-0 bg-transparent">
