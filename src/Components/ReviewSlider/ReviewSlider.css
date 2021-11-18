@@ -1,0 +1,48 @@
+.reviewSection {
+  padding: 100px 0;
+}
+
+.star-color {
+  color: goldenrod;
+}
+
+.owl-item > div {
+  cursor: pointer;
+  margin: 3% 0%;
+  transition: margin 0.4s ease;
+}
+
+.owl-item.center > div {
+  cursor: pointer;
+  margin: 0;
+}
+
+.reviews .active {
+  opacity: 0.5;
+  transition: all 0.25s ease;
+}
+
+.reviews .center {
+  opacity: 1;
+}
+
+.reviews .owl-stage-outer {
+  padding: 20px 0;
+}
+
+.reviews .owl-dots {
+  text-align: center;
+}
+
+.reviews .owl-dots span {
+  background: crimson !important;
+  border: 2px solid crimson !important;
+  transition: all 0.25s ease;
+}
+
+.reviews .owl-dots .active span {
+  background: crimson !important;
+  box-shadow: none;
+  width: 15px;
+  transition: all 0.25s ease;
+}

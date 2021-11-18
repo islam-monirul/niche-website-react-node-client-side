@@ -1,0 +1,20 @@
+[
+  {
+    "displayName": "Avishek Ganwala",
+    "email": "avishek@gmail.com",
+    "rating": 4.5,
+    "review": "wow! I am amazed with their service. They are just awesome man."
+  },
+  {
+    "displayName": "Ram Charan",
+    "email": "ramc@gmail.com",
+    "rating": 5.0,
+    "review": "Really blessed with the bike quality. Delivered with the promised date."
+  },
+  {
+    "displayName": "Rahman Khan",
+    "email": "rk@gmail.com",
+    "rating": 4.0,
+    "review": "Mixed feeling! Bike was excellent but took a bit time to arrive"
+  }
+]
