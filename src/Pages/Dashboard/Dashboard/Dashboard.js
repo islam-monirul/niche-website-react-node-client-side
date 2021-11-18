@@ -18,6 +18,7 @@ import AddReview from "../AddReview/AddReview";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import ManageAllOrders from "../ManageAllOrders/ManageAllOrders";
 import AddProduct from "../AddProduct/AddProduct";
+import ManageAllProducts from "../ManageAllProducts/ManageAllProducts";
 
 const Dashboard = () => {
   const { user, logout, admin } = useAuth();
@@ -81,6 +82,15 @@ const Dashboard = () => {
                           className="mb-2"
                         >
                           Add Product
+                        </NavLink>
+
+                        <NavLink
+                          to={`${url}/manageProducts`}
+                          style={{ color: "#000", textDecoration: "none" }}
+                          activeStyle={{ color: "crimson", fontWeight: "bold" }}
+                          className="mb-2"
+                        >
+                          Manage Products
                         </NavLink>
                       </Nav>
                     )}
@@ -163,7 +173,6 @@ const Dashboard = () => {
                         Manage Orders
                       </NavLink>
                     </li>
-
                     <li>
                       <NavLink
                         to={`${url}/addProduct`}
@@ -171,6 +180,16 @@ const Dashboard = () => {
                         activeStyle={{ color: "#000", fontWeight: "bold" }}
                       >
                         Add Product
+                      </NavLink>
+                    </li>
+
+                    <li>
+                      <NavLink
+                        to={`${url}/manageProducts`}
+                        style={{ color: "#fff" }}
+                        activeStyle={{ color: "#000", fontWeight: "bold" }}
+                      >
+                        Manage Products
                       </NavLink>
                     </li>
                   </>
@@ -215,6 +234,9 @@ const Dashboard = () => {
                 </AdminRoute>
                 <AdminRoute path={`${path}/manageAllorders`}>
                   <ManageAllOrders></ManageAllOrders>
+                </AdminRoute>
+                <AdminRoute path={`${path}/manageProducts`}>
+                  <ManageAllProducts></ManageAllProducts>
                 </AdminRoute>
                 <AdminRoute path={`${path}/addProduct`}>
                   <AddProduct></AddProduct>
