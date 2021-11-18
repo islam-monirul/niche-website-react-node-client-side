@@ -15,27 +15,31 @@ const ManageAllProducts = () => {
       .then((data) => {
         setBikes(data);
       });
-  }, []);
+  }, [bikes]);
 
   const handleDelete = (id) => {
     setDeleteStatus(false);
 
-    fetch(`https://sleepy-depths-60481.herokuapp.com/deleteProduct/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount) {
-          setDeleteStatus(true);
-        }
-      });
+    const deleteOk = window.confirm("Are you sure to delete the order?");
+
+    if (deleteOk) {
+      fetch(`https://sleepy-depths-60481.herokuapp.com/deleteProduct/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            setDeleteStatus(true);
+          }
+        });
+    }
   };
 
   return (
     <Container>
       {bikes ? (
-        <Row>
-          <h2 className="text-danger text-center lh-1 mb-4">Manage orders</h2>
+        <Row className="py-5">
+          <h2 className="text-danger text-center lh-1 mb-4">Manage Products</h2>
           {deleteStatus && (
             <Alert
               variant="success"

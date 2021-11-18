@@ -40,15 +40,19 @@ const ManageAllOrders = () => {
   const handleDelete = (id) => {
     setDeleteStatus(false);
 
-    fetch(`https://sleepy-depths-60481.herokuapp.com/deleteOrder/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount) {
-          setDeleteStatus(true);
-        }
-      });
+    const deleteOk = window.confirm("Are you sure to delete the order?");
+
+    if (deleteOk) {
+      fetch(`https://sleepy-depths-60481.herokuapp.com/deleteOrder/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            setDeleteStatus(true);
+          }
+        });
+    }
   };
 
   return (
@@ -90,7 +94,7 @@ const ManageAllOrders = () => {
                   ) : (
                     <>
                       {order?.status ? (
-                        <td className="bg-success text-white">Completed</td>
+                        <td className="bg-success text-white">Shipped</td>
                       ) : (
                         <td className="bg-danger text-white">Pending</td>
                       )}
