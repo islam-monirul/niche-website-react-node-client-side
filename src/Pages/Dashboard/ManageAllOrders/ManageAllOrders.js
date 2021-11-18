@@ -71,7 +71,6 @@ const ManageAllOrders = () => {
               <tr className="text-center align-middle">
                 <th>Ordered Product</th>
                 <th>Customer Name</th>
-                <th>Quantity</th>
                 <th>Cost</th>
                 <th>Status</th>
                 <th>Actions</th>
@@ -81,10 +80,10 @@ const ManageAllOrders = () => {
               {orders.map((order) => (
                 <tr className="text-center align-middle" key={order._id}>
                   <td>
-                    {order?.brand} {order?.bikeName}
+                    <span className="text-danger">{order?.brand}</span>{" "}
+                    {order?.bikeName}
                   </td>
                   <td>{order?.name}</td>
-                  <td>{order?.quantity}</td>
                   <td>$ {order?.cost}</td>
                   {updateStatus ? (
                     <Spinner variant="danger" animation="grow" />
@@ -120,7 +119,11 @@ const ManageAllOrders = () => {
           </Table>
         </Row>
       ) : (
-        <h1 className="text-center text-danger">No Orders Available</h1>
+        <Spinner
+          animation="grow"
+          variant="danger"
+          className="d-block mx-auto"
+        />
       )}
     </Container>
   );

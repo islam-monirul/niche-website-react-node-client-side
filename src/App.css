@@ -3,3 +3,17 @@
 * {
   font-family: "Josefin Sans", sans-serif;
 }
+
+.form-select:focus,
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: rgba(220, 20, 60, 0.322) !important;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(220 20 60 / 25%) !important;
+}
+
+.form-check-input:checked {
+  background-color: crimson !important;
+  border-color: crimson !important;
+}
