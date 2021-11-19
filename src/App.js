@@ -12,6 +12,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import CommonHeader from "./Components/Common/CommonHeader";
 import Footer from "./Components/Common/Footer";
 import Success from "./Pages/Success";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -47,6 +48,10 @@ function App() {
             </Route>
             <Route path="/register">
               <Register></Register>
+            </Route>
+
+            <Route path="*">
+              <NotFoundPage></NotFoundPage>
             </Route>
           </Switch>
         </Router>
