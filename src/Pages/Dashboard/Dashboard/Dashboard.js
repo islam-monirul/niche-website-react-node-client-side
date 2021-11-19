@@ -27,6 +27,7 @@ import AddProduct from "../AddProduct/AddProduct";
 import ManageAllProducts from "../ManageAllProducts/ManageAllProducts";
 import MyOrders from "../MyOrders/MyOrders";
 import Pay from "../Pay/Pay";
+import NotFoundDashboard from "../NotFoundDashboard/NotFoundDashboard";
 
 const Dashboard = () => {
   const { user, logout, admin } = useAuth();
@@ -294,6 +295,10 @@ const Dashboard = () => {
                 <AdminRoute path={`${path}/addProduct`}>
                   <AddProduct></AddProduct>
                 </AdminRoute>
+
+                <Route path={`${path}/*`}>
+                  <NotFoundDashboard></NotFoundDashboard>
+                </Route>
               </Switch>
             </div>
           </Col>
