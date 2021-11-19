@@ -1,12 +1,15 @@
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import "./Common.css";
 import { FaSignOutAlt, FaUserCircle, FaSignInAlt } from "react-icons/fa";
 
 const CommonHeader = () => {
   const { user, logout, admin } = useAuth();
+
+  const history = useHistory();
+
   return (
     <Navbar
       variant="dark"
@@ -66,7 +69,7 @@ const CommonHeader = () => {
           {user?.email ? (
             <Button
               className="bg-transparent text-white border-0 headerLogoutBtn"
-              onClick={logout}
+              onClick={() => logout(history)}
             >
               <FaSignOutAlt /> <span>Logout</span>
             </Button>

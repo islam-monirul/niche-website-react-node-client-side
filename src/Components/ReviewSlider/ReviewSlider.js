@@ -15,8 +15,6 @@ const ReviewSlider = () => {
       .then((data) => setReviews(data));
   }, []);
 
-  console.log(reviews);
-
   return (
     <section>
       <Container className="reviewSection">

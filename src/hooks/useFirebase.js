@@ -91,11 +91,15 @@ const useFirebase = () => {
   };
 
   //   logout function
-  const logout = () => {
+  const logout = (history) => {
     setIsLoading(true);
     signOut(auth)
       .then(() => {
         setAuthError("");
+
+        // reseting previous history on logout
+        const destination = "/login";
+        history.replace(destination);
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -114,6 +118,8 @@ const useFirebase = () => {
       setIsLoading(false);
     });
     return () => unsubscribe;
+
+    // eslint-disable-next-line
   }, []);
 
   // check admin

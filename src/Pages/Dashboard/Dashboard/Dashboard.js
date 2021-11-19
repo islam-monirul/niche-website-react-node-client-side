@@ -11,7 +11,13 @@ import {
 import useAuth from "../../../hooks/useAuth";
 import "../Dashboard.css";
 import { FaSignOutAlt, FaUserCircle, FaArrowLeft } from "react-icons/fa";
-import { Switch, Route, useRouteMatch, NavLink } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  useRouteMatch,
+  NavLink,
+  useHistory,
+} from "react-router-dom";
 import DashboardHome from "../DashboardHome/DashboardHome";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import AddReview from "../AddReview/AddReview";
@@ -25,6 +31,8 @@ import Pay from "../Pay/Pay";
 const Dashboard = () => {
   const { user, logout, admin } = useAuth();
   let { path, url } = useRouteMatch();
+
+  const history = useHistory();
 
   return (
     <Container className="bg-light p-2" fluid>
@@ -131,7 +139,7 @@ const Dashboard = () => {
                     <div>
                       <Button
                         className="bg-transparent text-danger border-0 lgBtn p-0"
-                        onClick={logout}
+                        onClick={() => logout(history)}
                       >
                         <FaSignOutAlt /> <span>Logout</span>
                       </Button>
@@ -238,7 +246,7 @@ const Dashboard = () => {
             <div>
               <Button
                 className="bg-transparent text-white border-0 lgBtn"
-                onClick={logout}
+                onClick={() => logout(history)}
               >
                 <FaSignOutAlt /> <span>Logout</span>
               </Button>
