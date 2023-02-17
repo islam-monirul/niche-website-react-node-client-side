@@ -8,7 +8,7 @@ const Bikes = () => {
   const [bikes, setBikes] = useState();
 
   useEffect(() => {
-    fetch("https://sleepy-depths-60481.herokuapp.com/bikes")
+    fetch("https://motomaze.onrender.com/bikes")
       .then((res) => res.json())
       .then((data) => setBikes(data));
   }, []);

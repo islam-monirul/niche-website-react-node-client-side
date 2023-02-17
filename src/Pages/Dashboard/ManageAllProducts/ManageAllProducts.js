@@ -10,7 +10,7 @@ const ManageAllProducts = () => {
 
   // fetch all orders
   useEffect(() => {
-    fetch("https://sleepy-depths-60481.herokuapp.com/bikes")
+    fetch("https://motomaze.onrender.com/bikes")
       .then((res) => res.json())
       .then((data) => {
         setBikes(data);
@@ -23,7 +23,7 @@ const ManageAllProducts = () => {
     const deleteOk = window.confirm("Are you sure to delete the order?");
 
     if (deleteOk) {
-      fetch(`https://sleepy-depths-60481.herokuapp.com/deleteProduct/${id}`, {
+      fetch(`https://motomaze.onrender.com/deleteProduct/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

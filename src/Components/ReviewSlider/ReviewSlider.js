@@ -10,7 +10,7 @@ const ReviewSlider = () => {
   const [reviews, setReviews] = useState();
 
   useEffect(() => {
-    fetch("https://sleepy-depths-60481.herokuapp.com/reviews")
+    fetch("https://motomaze.onrender.com/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

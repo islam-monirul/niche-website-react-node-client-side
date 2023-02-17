@@ -41,7 +41,7 @@ const AddReview = () => {
   };
 
   const addNewReview = (review) => {
-    fetch("https://sleepy-depths-60481.herokuapp.com/addReview", {
+    fetch("https://motomaze.onrender.com/addReview", {
       method: "POST",
       headers: {
         "content-type": "application/json",

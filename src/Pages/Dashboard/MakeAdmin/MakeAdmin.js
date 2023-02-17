@@ -29,7 +29,7 @@ const MakeAdmin = () => {
 
     const user = { email: data.email };
 
-    fetch("https://sleepy-depths-60481.herokuapp.com/adduser/admin", {
+    fetch("https://motomaze.onrender.com/adduser/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -10,7 +10,7 @@ const MyOrders = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`https://sleepy-depths-60481.herokuapp.com/orders/${user.email}`)
+    fetch(`https://motomaze.onrender.com/orders/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -23,7 +23,7 @@ const MyOrders = () => {
     const deleteOk = window.confirm("Are you sure to delete the order?");
 
     if (deleteOk) {
-      fetch(`https://sleepy-depths-60481.herokuapp.com/deleteOrder/${id}`, {
+      fetch(`https://motomaze.onrender.com/deleteOrder/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

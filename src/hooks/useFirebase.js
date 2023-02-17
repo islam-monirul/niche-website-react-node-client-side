@@ -124,7 +124,7 @@ const useFirebase = () => {
 
   // check admin
   useEffect(() => {
-    fetch(`https://sleepy-depths-60481.herokuapp.com/users/${user.email}`)
+    fetch(`https://motomaze.onrender.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
@@ -132,7 +132,7 @@ const useFirebase = () => {
   const saveUserToDb = (email, displayName, method) => {
     const user = { email, displayName };
 
-    fetch("https://sleepy-depths-60481.herokuapp.com/adduser", {
+    fetch("https://motomaze.onrender.com/adduser", {
       method: method,
       headers: {
         "content-type": "application/json",

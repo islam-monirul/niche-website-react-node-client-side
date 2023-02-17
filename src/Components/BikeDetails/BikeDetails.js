@@ -33,7 +33,7 @@ const BikeDetails = () => {
 
   //   for getting the specific bikes
   useEffect(() => {
-    fetch(`https://sleepy-depths-60481.herokuapp.com/bikes/${bikeId}`)
+    fetch(`https://motomaze.onrender.com/bikes/${bikeId}`)
       .then((res) => res.json())
       .then((data) => setBike(data));
 
@@ -102,7 +102,7 @@ const BikeDetails = () => {
   };
 
   const placeorder = (data) => {
-    fetch("https://sleepy-depths-60481.herokuapp.com/placeorder", {
+    fetch("https://motomaze.onrender.com/placeorder", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -119,7 +119,7 @@ const BikeDetails = () => {
 
   //   for getting all bikes and filtering except the current one
   useEffect(() => {
-    fetch("https://sleepy-depths-60481.herokuapp.com/bikes")
+    fetch("https://motomaze.onrender.com/bikes")
       .then((res) => res.json())
       .then((data) => setBikes(data));
   }, []);

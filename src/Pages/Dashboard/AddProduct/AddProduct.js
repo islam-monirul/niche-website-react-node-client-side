@@ -69,7 +69,7 @@ const AddProduct = () => {
   };
 
   const addNewProduct = (bike) => {
-    fetch("https://sleepy-depths-60481.herokuapp.com/addProduct", {
+    fetch("https://motomaze.onrender.com/addProduct", {
       method: "POST",
       headers: {
         "content-type": "application/json",
